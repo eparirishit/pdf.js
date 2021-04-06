@@ -845,6 +845,20 @@ function getModificationDate(date = new Date(Date.now())) {
   return buffer.join("");
 }
 
+function getUrlDomain(url) {
+  // Check whether each part of the domain is not longer than 63 characters, and allow internationalized domain names using the punycode notation.
+  const domainRegPattern = /\b((?=[a-z0-9-]{1,63}\.)(xn--)?[a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,63}\b/;
+
+  // Retrieve only the domain value
+  let inputUrl = new URL(url);
+  let domainMatch = inputUrl.hostname.match(domainRegPattern);
+  let domain = domainMatch[1]
+    .substr(0, domainMatch[1].length - 1)
+    .toLowerCase();
+
+  return domain;
+}
+
 /**
  * Promise Capability object.
  *
@@ -948,6 +962,7 @@ export {
   createObjectURL,
   escapeString,
   getModificationDate,
+  getUrlDomain,
   getVerbosityLevel,
   info,
   isArrayBuffer,

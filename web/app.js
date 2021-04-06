@@ -257,7 +257,7 @@ const PDFViewerApplication = {
     ) {
       // Prevent external links from "replacing" the viewer,
       // when it's embedded in e.g. an <iframe> or an <object>.
-      AppOptions.set("externalLinkTarget", LinkTarget.TOP);
+      AppOptions.set("externalLinkTarget", LinkTarget.SELF);
     }
     await this._initializeViewerComponents();
 

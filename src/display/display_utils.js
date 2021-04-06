@@ -18,6 +18,7 @@ import {
   assert,
   BaseException,
   CMapCompressionType,
+  getUrlDomain,
   isString,
   removeNullCharacters,
   stringToBytes,
@@ -447,7 +448,15 @@ function addLinkAttributes(link, { url, target, rel, enabled = true } = {}) {
       targetStr = "_top";
       break;
   }
-  link.target = targetStr;
+  // configure behavior for hyperlinks
+  if(window.PDFViewerApplicationOptions.get("isExternalLinkSupportedInFrame") === false) {
+    let appUrlDomain = getUrlDomain(window.PDFViewerApplicationOptions.get("appBaseUrl"));
+    let linkDomain = getUrlDomain(url);
+    link.target = (appUrlDomain === linkDomain) ? targetStr : "_blank";
+  }
+  else {
+    link.target = targetStr;
+  }
 
   link.rel = typeof rel === "string" ? rel : DEFAULT_LINK_REL;
 }

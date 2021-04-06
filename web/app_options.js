@@ -34,7 +34,7 @@ const defaultOptions = {
   },
   defaultUrl: {
     /** @type {string} */
-    value: "compressed.tracemonkey-pldi-09.pdf",
+    value: "",
     kind: OptionKind.VIEWER,
   },
   defaultZoomValue: {
@@ -155,6 +155,11 @@ const defaultOptions = {
     kind: OptionKind.VIEWER + OptionKind.PREFERENCE,
   },
 
+  appBaseUrl: {
+    /** @type {string} */
+    value: "",
+    kind: OptionKind.API,
+  },
   cMapPacked: {
     /** @type {boolean} */
     value: true,
@@ -199,6 +204,11 @@ const defaultOptions = {
     kind: OptionKind.API,
   },
   isEvalSupported: {
+    /** @type {boolean} */
+    value: true,
+    kind: OptionKind.API,
+  },
+  isExternalLinkSupportedInFrame: {
     /** @type {boolean} */
     value: true,
     kind: OptionKind.API,
