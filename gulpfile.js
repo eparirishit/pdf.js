@@ -732,7 +732,7 @@ function buildGeneric(defines, dir) {
       .pipe(gulp.dest(dir + "web")),
 
     gulp
-      .src("web/compressed.tracemonkey-pldi-09.pdf")
+      .src("web/")
       .pipe(gulp.dest(dir + "web")),
   ]);
 }
@@ -880,7 +880,7 @@ function buildMinified(defines, dir) {
       .pipe(gulp.dest(dir + "web")),
 
     gulp
-      .src("web/compressed.tracemonkey-pldi-09.pdf")
+      .src("web/")
       .pipe(gulp.dest(dir + "web")),
   ]);
 }
@@ -955,17 +955,17 @@ function parseMinified(dir) {
   console.log();
   console.log("### Cleaning js files");
 
-  fs.unlinkSync(dir + "/web/viewer.js");
+  // fs.unlinkSync(dir + "/web/viewer.js");
   fs.unlinkSync(dir + "/web/debugger.js");
-  fs.unlinkSync(dir + "/build/pdf.js");
-  fs.unlinkSync(dir + "/build/pdf.worker.js");
+  // fs.unlinkSync(dir + "/build/pdf.js");
+  // fs.unlinkSync(dir + "/build/pdf.worker.js");
 
-  fs.renameSync(dir + "/build/pdf.min.js", dir + "/build/pdf.js");
-  fs.renameSync(dir + "/build/pdf.worker.min.js", dir + "/build/pdf.worker.js");
-  fs.renameSync(
-    dir + "/image_decoders/pdf.image_decoders.min.js",
-    dir + "/image_decoders/pdf.image_decoders.js"
-  );
+  // fs.renameSync(dir + "/build/pdf.min.js", dir + "/build/pdf.js");
+  // fs.renameSync(dir + "/build/pdf.worker.min.js", dir + "/build/pdf.worker.js");
+  // fs.renameSync(
+  //   dir + "/image_decoders/pdf.image_decoders.min.js",
+  //   dir + "/image_decoders/pdf.image_decoders.js"
+  // );
 }
 
 gulp.task(
