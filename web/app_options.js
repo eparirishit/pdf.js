@@ -52,6 +52,11 @@ const defaultOptions = {
     value: false,
     kind: OptionKind.VIEWER + OptionKind.PREFERENCE,
   },
+  disablePrint: {
+    /** @type {boolean} */
+    value: false,
+    kind: OptionKind.VIEWER + OptionKind.PREFERENCE,
+  },
   /**
    * The `disablePreferences` is, conditionally, defined below.
    */
@@ -239,7 +244,7 @@ const defaultOptions = {
     value:
       typeof PDFJSDev === "undefined" || !PDFJSDev.test("PRODUCTION")
         ? "../src/worker_loader.js"
-        : "../build/pdf.worker.js",
+        : "../build/pdf.worker.min.js",
     kind: OptionKind.WORKER,
   },
 };
