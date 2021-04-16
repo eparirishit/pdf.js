@@ -360,7 +360,8 @@ class PDFSidebar {
     if (!this.isOpen) {
       // Only show the notification on the `toggleButton` if the sidebar is
       // currently closed, to avoid unnecessarily bothering the user.
-      this.toggleButton.classList.add(UI_NOTIFICATION_CLASS);
+      if (PDFViewerApplication.appConfig.sidebar.attachmentsButton.hidden === false)
+        this.toggleButton.classList.add(UI_NOTIFICATION_CLASS);
     } else if (view === this.active) {
       // If the sidebar is currently open *and* the `view` is visible, do not
       // bother the user with a notification on the corresponding button.
